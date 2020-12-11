@@ -61,3 +61,16 @@ Les objectifs du projet sont:
   - ShowRegistry-ReseauSocial.sql
   - SelectDatabase-ReseauSocial.sql
   - Documentation-ReseauSocial.pdf
+
+## Délais
+
+- Sprint 1 : 11/12/2020
+  - MCD
+  - MLD
+- Sprint 2 : 08/01/2021
+  - CreateDatabase
+- Sprint 3 : 22/01/2021
+  - FillDatabase
+  - ShowRegistry
+  - SelectDatabase
+  - Documentation
