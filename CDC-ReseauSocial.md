@@ -1,8 +1,11 @@
 # Cahier des charges Réseau Social
 
 ## Informations Générales
-
+* Participants
+    * Benjamin Fontana
+    * Kenan Augsburger
 ## Titre
+Reseau social
 
 ## Sujet
 Il s'agit d'une base de donnée permettant le bon fonctionnement d'un site de réseau social.
