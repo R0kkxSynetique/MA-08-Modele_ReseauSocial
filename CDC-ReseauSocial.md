@@ -13,9 +13,13 @@ Les objectifs du projet sont:
 * Rechercher des informations dans la base de donnée
 * Documenter la base de donnée
 
-## Matériel et logiciels à disposition
-
-## Prérequis
+## Logiciels à disposition
+* [Draw.io](https://app.diagrams.net/)
+* [MySQL Workbench](https://dev.mysql.com/downloads/)
+* Editeur de texte
+* [Github](https://github.com/)
+* [Microsoft SQL server](https://www.microsoft.com/en-us/sql-server)
+* [dataedo](https://dataedo.com/)
 
 ## Descriptif du projet
 ### Fonctionanalités minimales
@@ -36,3 +40,12 @@ Les objectifs du projet sont:
 * Voir l'état des commandes
 
 ## Livrables
+* Rendu
+    * CDC-ReseauSocial.pdf
+    * MCD-ReseauSocial.pdf
+    * MLD-ReseauSocial.pdf
+    * CreateDatabase-ReseauSocial.sql
+    * FillDatabase-ReseauSocial.sql
+    * ShowRegistry-ReseauSocial.sql
+    * SelectDatabase-ReseauSocial.sql
+    * Documentation-ReseauSocial.pdf
