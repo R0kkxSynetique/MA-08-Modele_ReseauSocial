@@ -1,7 +1,19 @@
 USE master;
-DROP DATABASE IF EXISTS RS;
+GO
+
+IF (EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = 'RS'))
+BEGIN
+       USE master;
+       ALTER DATABASE RS SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+       DROP DATABASE RS;
+END
+GO
+
 CREATE DATABASE RS;
+Go
+
 USE RS;
+GO
 
 CREATE TABLE users (
     id INT NOT NULL IDENTITY(1,1),
@@ -9,7 +21,7 @@ CREATE TABLE users (
     accountName VARCHAR(45) NOT NULL,
     username VARCHAR(45),
     email VARCHAR(128),
-    phoneNumber INT(13),
+    phoneNumber INT,
     birthDate DATE,
     PRIMARY KEY(id)
 )
