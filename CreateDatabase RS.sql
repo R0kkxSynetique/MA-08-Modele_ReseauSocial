@@ -21,7 +21,7 @@ CREATE TABLE users (
     accountName VARCHAR(45) NOT NULL,
     username VARCHAR(45),
     email VARCHAR(128),
-    phoneNumber INT,
+    phoneNumber VARCHAR(13),
     birthDate DATE,
     PRIMARY KEY(id)
 )
@@ -75,7 +75,7 @@ CREATE TABLE stores (
     "description" VARCHAR(80),
     webSite VARCHAR(45),
     email VARCHAR(45),
-    phoneNumber VARCHAR(45),
+    phoneNumber VARCHAR(13),
     PRIMARY KEY(id)
 )
 
@@ -122,7 +122,7 @@ CREATE TABLE pages (
     "description" VARCHAR(80),
     webSite VARCHAR(45),
     email VARCHAR(45),
-    phoneNumber VARCHAR(45),
+    phoneNumber VARCHAR(13),
     PRIMARY KEY(id)
 )
 
