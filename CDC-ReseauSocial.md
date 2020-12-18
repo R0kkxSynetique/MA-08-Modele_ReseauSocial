@@ -53,14 +53,14 @@ Les objectifs du projet sont:
 ## Livrables
 
 - Rendu
-  - CDC-ReseauSocial.pdf
-  - MCD-ReseauSocial.pdf
-  - MLD-ReseauSocial.pdf
-  - CreateDatabase-ReseauSocial.sql
-  - FillDatabase-ReseauSocial.sql
-  - ShowRegistry-ReseauSocial.sql
-  - SelectDatabase-ReseauSocial.sql
-  - Documentation-ReseauSocial.pdf
+  - "CDC ReseauSocial.pdf"
+  - "MCD ReseauSocial.pdf"
+  - "MLD ReseauSocial.pdf"
+  - "CreateDatabase ReseauSocial.sql"
+  - "FillDatabase ReseauSocial.sql"
+  - "ShowRegistry ReseauSocial.sql"
+  - "SelectDatabase ReseauSocial.sql"
+  - "Documentation ReseauSocial.pdf"
 
 ## Délais
 
