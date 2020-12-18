@@ -5,33 +5,35 @@ USE RS;
 
 CREATE TABLE users (
     id INT NOT NULL IDENTITY(1,1),
-    accountName VARCHAR(45),
-    pseudonym VARCHAR(45),
-    email VARCHAR(45),
-    phoneNumber VARCHAR(45),
+    "number" VARCHAR(64) NOT NULL,
+    accountName VARCHAR(45) NOT NULL,
+    username VARCHAR(45),
+    email VARCHAR(128),
+    phoneNumber INT(13),
+    birthDate DATE,
     PRIMARY KEY(id)
 )
 
 CREATE TABLE stories (
     id INT NOT NULL IDENTITY(1,1),
-    "number" VARCHAR(45),
-    "timeout" VARCHAR(45),
-    "path" VARCHAR(45),
+    "number" VARCHAR(64) NOT NULL,
+    "timeout" DATETIME,
+    "path" VARCHAR(64),
     PRIMARY KEY(id)
 )
 
 CREATE TABLE discussions (
     id INT NOT NULL IDENTITY(1,1),
-    "number" VARCHAR(45),
-    creationDate VARCHAR(45),
+    "number" VARCHAR(64) NOT NULL,
+    creationDate DATE DEFAULT GETDATE(),
     PRIMARY KEY(id)
 )
 
 CREATE TABLE messages (
     id INT NOT NULL IDENTITY(1,1),
-    "number" INT,
-    creationDate VARCHAR(45),
-    modificationDate VARCHAR(45),
+    "number" VARCHAR(64) NOT NULL,
+    creationDate DATE DEFAULT GETDATE(),
+    modificationDate DATE DEFAULT GETDATE(),
     PRIMARY KEY(id)
 )
 
