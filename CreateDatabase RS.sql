@@ -1,5 +1,4 @@
 USE master;
-GO
 
 IF (EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = 'RS'))
 BEGIN
@@ -7,13 +6,10 @@ BEGIN
        ALTER DATABASE RS SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
        DROP DATABASE RS;
 END
-GO
 
 CREATE DATABASE RS;
-Go
 
 USE RS;
-GO
 
 CREATE TABLE users (
     id INT NOT NULL IDENTITY(1,1),
@@ -56,25 +52,25 @@ CREATE TABLE users_maintain_discussions (
 
 CREATE TABLE states (
     id INT NOT NULL IDENTITY(1,1),
-    "name" VARCHAR(45),
+    "name" VARCHAR(45) NOT NULL,
     PRIMARY KEY(id)
 )
 
 CREATE TABLE orders (
     id INT NOT NULL IDENTITY(1,1),
-    "number" VARCHAR(45),
-    "date" VARCHAR(45),
-    clientNumber VARCHAR(45),
-    totalPrice VARCHAR(45),
+    "number" VARCHAR(64) NOT NULL,
+    "date" DATE,
+    clientNumber VARCHAR(64),
+    totalPrice DECIMAL(5,2),
     PRIMARY KEY(id)
 )
 
 CREATE TABLE stores (
     id INT NOT NULL IDENTITY(1,1),
-    "name" VARCHAR(45),
-    "description" VARCHAR(80),
-    webSite VARCHAR(45),
-    email VARCHAR(45),
+    "name" VARCHAR(45) NOT NULL,
+    "description" VARCHAR(128),
+    webSite VARCHAR(128),
+    email VARCHAR(128),
     phoneNumber VARCHAR(13),
     PRIMARY KEY(id)
 )
@@ -86,12 +82,12 @@ CREATE TABLE users_follow_stores (
 
 CREATE TABLE products (
     id INT NOT NULL IDENTITY(1,1),
-    productNumer VARCHAR(45),
-    model VARCHAR(45),
-    brand VARCHAR(45),
-    price VARCHAR(45),
-    "description" VARCHAR(80),
-    pictureLink VARCHAR(45),
+    productNumer VARCHAR(64),
+    model VARCHAR(64),
+    brand VARCHAR(64),
+    price DECIMAL(5,2),
+    "description" VARCHAR(128),
+    pictureLink VARCHAR(64),
     PRIMARY KEY(id)
 )
 
@@ -112,9 +108,11 @@ CREATE TABLE users_follow_users (
 
 CREATE TABLE "sessions" (
     id INT NOT NULL IDENTITY(1,1),
-    token VARCHAR(45),
+    token VARCHAR(128) NOT NULL,
     PRIMARY KEY(id)
 )
+
+-- todo:FINISH HERE
 
 CREATE TABLE pages (
     id INT NOT NULL IDENTITY(1,1),
