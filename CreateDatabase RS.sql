@@ -1,4 +1,9 @@
--- CARTRIDGE --
+-- -------------------------- --
+-- Project : Reseau Social    --
+-- Author  : Augsburger Kenan --
+-- Version : 1.0              --
+-- Date    : 24/12/2020       --
+-- -------------------------- --
 
 USE master;
 
