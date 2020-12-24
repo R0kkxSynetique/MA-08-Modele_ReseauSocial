@@ -78,7 +78,7 @@ BEGIN
     (
         id INT NOT NULL IDENTITY(1,1),
         "number" VARCHAR(64) NOT NULL,
-        "date" DATE,
+        "date" DATE DEFAULT GETDATE(),
         clientNumber VARCHAR(64),
         totalPrice DECIMAL(5,2),
         PRIMARY KEY(id)
@@ -138,15 +138,13 @@ BEGIN
         PRIMARY KEY(id)
     )
 
-    -- todo:FINISH HERE
-
     CREATE TABLE pages
     (
         id INT NOT NULL IDENTITY(1,1),
-        "name" VARCHAR(45),
-        "description" VARCHAR(80),
-        webSite VARCHAR(45),
-        email VARCHAR(45),
+        "name" VARCHAR(45) NOT NULL,
+        "description" VARCHAR(128),
+        webSite VARCHAR(128),
+        email VARCHAR(128),
         phoneNumber VARCHAR(13),
         PRIMARY KEY(id)
     )
@@ -167,7 +165,7 @@ BEGIN
     CREATE TABLE types
     (
         id INT NOT NULL IDENTITY(1,1),
-        "name" VARCHAR(45),
+        "name" VARCHAR(45) NOT NULL,
         PRIMARY KEY(id)
     )
 
@@ -180,10 +178,10 @@ BEGIN
     CREATE TABLE posts
     (
         id INT NOT NULL IDENTITY(1,1),
-        "number" VARCHAR(45),
-        pictureLink VARCHAR(45),
-        title VARCHAR(45),
-        "description" VARCHAR(80),
+        "number" VARCHAR(64) NOT NULL,
+        pictureLink VARCHAR(64),
+        title VARCHAR(64),
+        "description" VARCHAR(128),
         PRIMARY KEY(id)
     )
 
@@ -202,8 +200,8 @@ BEGIN
     CREATE TABLE comments
     (
         id INT NOT NULL IDENTITY(1,1),
-        "number" VARCHAR(45),
-        texte VARCHAR(45),
+        "number" VARCHAR(64) NOT NULL,
+        "text" VARCHAR(254),
         PRIMARY KEY(id)
     )
 
