@@ -36,7 +36,7 @@ BEGIN
         username VARCHAR(45),
         email VARCHAR(128),
         phoneNumber VARCHAR(13),
-        birthDate DATE,
+        birthDate DATE NOT NULL,
         PRIMARY KEY(id)
     )
 
@@ -211,5 +211,192 @@ BEGIN
     )
 
     -- CONSTRAINTS --
+    -- TODO:Check on update/delete actions
+    -- ! USED NO ACTION TO AVOID MULTIPLE CASCADING PATHS ERROR
+    -- ! FIX NEEDED
+
+    ALTER TABLE stories
+        ADD user_id INT NOT NULL,
+        FOREIGN KEY(user_id) REFERENCES users(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        ;
+
+    ALTER TABLE messages
+        ADD user_id INT NOT NULL,
+        FOREIGN KEY(user_id) REFERENCES users(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+        discussion_id INT NOT NULL,
+        FOREIGN KEY(discussion_id) REFERENCES discussions(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        ;
+
+    ALTER TABLE users_maintain_discussions
+        ADD user_id INT NOT NULL,
+        FOREIGN KEY(user_id) REFERENCES users(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+        discussion_id INT NOT NULL,
+        FOREIGN KEY(discussion_id) REFERENCES discussions(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        ;
+
+    ALTER TABLE orders
+        ADD user_id INT NOT NULL,
+        FOREIGN KEY(user_id) REFERENCES users(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+        state_id INT NOT NULL,
+        FOREIGN KEY(state_id) REFERENCES states(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        ;
+
+    ALTER TABLE stores
+        ADD user_id INT NOT NULL,
+        FOREIGN KEY(user_id) REFERENCES users(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        ;
+
+    ALTER TABLE users_follow_stores
+        ADD user_id INT NOT NULL,
+        FOREIGN KEY(user_id) REFERENCES users(id)
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+        store_id INT NOT NULL,
+        FOREIGN KEY(store_id) REFERENCES stores(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        ;
+
+    ALTER TABLE stores_possess_products
+        ADD store_id INT NOT NULL,
+        FOREIGN KEY(store_id) REFERENCES stores(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+        product_id INT NOT NULL,
+        FOREIGN KEY(product_id) REFERENCES products(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        ;
+
+    ALTER TABLE orders_contain_products
+        ADD product_id INT NOT NULL,
+        FOREIGN KEY(product_id) REFERENCES products(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+        order_id INT NOT NULL,
+        FOREIGN KEY(order_id) REFERENCES orders(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        ;
+
+    ALTER TABLE users_follow_users
+        ADD user_id0 INT NOT NULL,
+        FOREIGN KEY(user_id0) REFERENCES users(id)
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+        user_id1 INT NOT NULL,
+        FOREIGN KEY(user_id1) REFERENCES users(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        ;
+
+    ALTER TABLE "sessions"
+        ADD user_id INT NOT NULL,
+        FOREIGN KEY(user_id) REFERENCES users(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        ;
+
+    ALTER TABLE pages
+        ADD user_id INT NOT NULL,
+        FOREIGN KEY(user_id) REFERENCES users(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        ;
+
+    ALTER TABLE users_follow_pages
+        ADD user_id INT NOT NULL,
+        FOREIGN KEY(user_id) REFERENCES users(id)
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+        page_id INT NOT NULL,
+        FOREIGN KEY(page_id) REFERENCES pages(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        ;
+
+    ALTER TABLE users_manage_pages
+        ADD user_id INT NOT NULL,
+        FOREIGN KEY(user_id) REFERENCES users(id)
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+        page_id INT NOT NULL,
+        FOREIGN KEY(page_id) REFERENCES pages(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        ;
+
+    ALTER TABLE users_possess_types
+        ADD user_id INT NOT NULL,
+        FOREIGN KEY(user_id) REFERENCES users(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+        type_id INT NOT NULL,
+        FOREIGN KEY(type_id) REFERENCES types(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        ;
+
+    ALTER TABLE posts
+        ADD user_id INT,
+        FOREIGN KEY(user_id) REFERENCES users(id)
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+        page_id INT,
+        FOREIGN KEY(page_id) REFERENCES pages(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        ;
+        
+    ALTER TABLE users_like_posts
+        ADD user_id INT NOT NULL,
+        FOREIGN KEY(user_id) REFERENCES users(id)
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+        post_id INT NOT NULL,
+        FOREIGN KEY(post_id) REFERENCES posts(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        ;
+
+    ALTER TABLE posts_possess_types
+        ADD post_id INT NOT NULL,
+        FOREIGN KEY(post_id) REFERENCES posts(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+        type_id INT NOT NULL,
+        FOREIGN KEY(type_id) REFERENCES types(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        ;
+
+    ALTER TABLE comments
+        ADD user_id INT NOT NULL,
+        FOREIGN KEY(user_id) REFERENCES users(id)
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+        post_id INT NOT NULL,
+        FOREIGN KEY(post_id) REFERENCES posts(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
+        ;
+
+
 
 END
