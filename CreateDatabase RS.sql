@@ -9,6 +9,8 @@ END
 
 CREATE DATABASE RS;
 
+IF (EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = 'RS'))
+BEGIN
 USE RS;
 
 CREATE TABLE users (
@@ -171,3 +173,5 @@ CREATE TABLE comments (
     texte VARCHAR(45),
     PRIMARY KEY(id)
 )
+
+END
