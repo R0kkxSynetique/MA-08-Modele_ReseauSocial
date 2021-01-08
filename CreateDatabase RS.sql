@@ -215,6 +215,8 @@ BEGIN
     -- ! USED NO ACTION TO AVOID MULTIPLE CASCADING PATHS ERROR
     -- ! FIX NEEDED
 
+    -- Foreign keys
+
     ALTER TABLE stories
         ADD user_id INT NOT NULL,
         FOREIGN KEY(user_id) REFERENCES users(id)
@@ -397,6 +399,59 @@ BEGIN
         ON DELETE CASCADE
         ;
 
+    -- Unique
 
+    ALTER TABLE comments
+        ADD CONSTRAINT uniqueComment UNIQUE (number)
+    ;
+
+    ALTER TABLE discussions
+        ADD CONSTRAINT uniqueDiscussion UNIQUE (number)
+    ;
+
+    ALTER TABLE messages
+        ADD CONSTRAINT uniqueMessage UNIQUE (number)
+    ;
+
+    ALTER TABLE orders
+        ADD CONSTRAINT uniqueOrder UNIQUE (number)
+    ;
+
+    ALTER TABLE pages
+        ADD CONSTRAINT uniquePage UNIQUE (name)
+    ;
+
+    ALTER TABLE posts
+        ADD CONSTRAINT uniquePost UNIQUE (number)
+    ;
+
+    ALTER TABLE products
+        ADD CONSTRAINT uniqueProduct UNIQUE (productNumer)
+    ;
+
+    ALTER TABLE sessions
+        ADD CONSTRAINT uniqueSession UNIQUE (token)
+    ;
+
+    ALTER TABLE states
+        ADD CONSTRAINT uniqueState UNIQUE (name)
+    ;
+    
+    ALTER TABLE stores
+        ADD CONSTRAINT uniqueStore UNIQUE (name)
+    ;
+
+    ALTER TABLE stories
+        ADD CONSTRAINT uniqueStorie UNIQUE (number)
+    ;
+
+    ALTER TABLE types
+        ADD CONSTRAINT uniqueType UNIQUE (name)
+    ;
+
+    ALTER TABLE users
+        ADD CONSTRAINT uniqueNumber UNIQUE (number),
+        CONSTRAINT uniqueAccountName UNIQUE (accountName)
+    ;
 
 END
