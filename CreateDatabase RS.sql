@@ -365,7 +365,7 @@ BEGIN
         ON UPDATE CASCADE
         ON DELETE CASCADE
         ;
-        
+
     ALTER TABLE users_like_posts
         ADD user_id INT NOT NULL,
         FOREIGN KEY(user_id) REFERENCES users(id)
@@ -436,7 +436,7 @@ BEGIN
     ALTER TABLE states
         ADD CONSTRAINT uniqueState UNIQUE (name)
     ;
-    
+
     ALTER TABLE stores
         ADD CONSTRAINT uniqueStore UNIQUE (name)
     ;
@@ -452,6 +452,12 @@ BEGIN
     ALTER TABLE users
         ADD CONSTRAINT uniqueNumber UNIQUE (number),
         CONSTRAINT uniqueAccountName UNIQUE (accountName)
+    ;
+
+    -- Checks
+
+    ALTER TABLE posts
+        ADD CONSTRAINT CHK_OneOfEither CHECK (user_id IS NULL OR page_id IS NULL)
     ;
 
 END
