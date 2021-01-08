@@ -109,7 +109,7 @@ BEGIN
     CREATE TABLE products
     (
         id INT NOT NULL IDENTITY(1,1),
-        productNumer VARCHAR(64),
+        productNumber VARCHAR(64),
         model VARCHAR(64),
         brand VARCHAR(64),
         price DECIMAL(5,2),
@@ -426,7 +426,7 @@ BEGIN
     ;
 
     ALTER TABLE products
-        ADD CONSTRAINT uniqueProduct UNIQUE (productNumer)
+        ADD CONSTRAINT uniqueProduct UNIQUE (productNumber)
     ;
 
     ALTER TABLE sessions
