@@ -111,7 +111,7 @@ BEGIN
         id INT NOT NULL IDENTITY(1,1),
         productNumber VARCHAR(64),
         model VARCHAR(64),
-        brand VARCHAR(64),
+        brand VARCHAR(128),
         price DECIMAL(5,2),
         "description" VARCHAR(128),
         pictureLink VARCHAR(64),
