@@ -58,7 +58,7 @@ Les objectifs du projet sont:
   - "MLD ReseauSocial.pdf"
   - "CreateDatabase ReseauSocial.sql"
   - "FillDatabase ReseauSocial.sql"
-  - "ShowRegistry ReseauSocial.sql"
+  - "CreateViews ReseauSocial.sql"
   - "SelectDatabase ReseauSocial.sql"
   - "Documentation ReseauSocial.pdf"
 
