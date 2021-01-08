@@ -109,9 +109,9 @@ BEGIN
     CREATE TABLE products
     (
         id INT NOT NULL IDENTITY(1,1),
-        productNumer VARCHAR(64),
+        productNumber VARCHAR(64),
         model VARCHAR(64),
-        brand VARCHAR(64),
+        brand VARCHAR(128),
         price DECIMAL(5,2),
         "description" VARCHAR(128),
         pictureLink VARCHAR(64),
@@ -214,6 +214,8 @@ BEGIN
     -- TODO:Check on update/delete actions
     -- ! USED NO ACTION TO AVOID MULTIPLE CASCADING PATHS ERROR
     -- ! FIX NEEDED
+
+    -- Foreign keys
 
     ALTER TABLE stories
         ADD user_id INT NOT NULL,
@@ -363,7 +365,7 @@ BEGIN
         ON UPDATE CASCADE
         ON DELETE CASCADE
         ;
-        
+
     ALTER TABLE users_like_posts
         ADD user_id INT NOT NULL,
         FOREIGN KEY(user_id) REFERENCES users(id)
@@ -397,6 +399,65 @@ BEGIN
         ON DELETE CASCADE
         ;
 
+    -- Unique
 
+    ALTER TABLE comments
+        ADD CONSTRAINT uniqueComment UNIQUE (number)
+    ;
+
+    ALTER TABLE discussions
+        ADD CONSTRAINT uniqueDiscussion UNIQUE (number)
+    ;
+
+    ALTER TABLE messages
+        ADD CONSTRAINT uniqueMessage UNIQUE (number)
+    ;
+
+    ALTER TABLE orders
+        ADD CONSTRAINT uniqueOrder UNIQUE (number)
+    ;
+
+    ALTER TABLE pages
+        ADD CONSTRAINT uniquePage UNIQUE (name)
+    ;
+
+    ALTER TABLE posts
+        ADD CONSTRAINT uniquePost UNIQUE (number)
+    ;
+
+    ALTER TABLE products
+        ADD CONSTRAINT uniqueProduct UNIQUE (productNumber)
+    ;
+
+    ALTER TABLE sessions
+        ADD CONSTRAINT uniqueSession UNIQUE (token)
+    ;
+
+    ALTER TABLE states
+        ADD CONSTRAINT uniqueState UNIQUE (name)
+    ;
+
+    ALTER TABLE stores
+        ADD CONSTRAINT uniqueStore UNIQUE (name)
+    ;
+
+    ALTER TABLE stories
+        ADD CONSTRAINT uniqueStorie UNIQUE (number)
+    ;
+
+    ALTER TABLE types
+        ADD CONSTRAINT uniqueType UNIQUE (name)
+    ;
+
+    ALTER TABLE users
+        ADD CONSTRAINT uniqueNumber UNIQUE (number),
+        CONSTRAINT uniqueAccountName UNIQUE (accountName)
+    ;
+
+    -- Checks
+
+    ALTER TABLE posts
+        ADD CONSTRAINT CHK_OneOfEither CHECK (user_id IS NULL OR page_id IS NULL)
+    ;
 
 END
