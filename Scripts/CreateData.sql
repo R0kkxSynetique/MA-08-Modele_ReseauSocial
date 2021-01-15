@@ -280,7 +280,7 @@ INSERT INTO sessions (token, user_id) VALUES
 ('1Dt9T5fwFGHPtxLcQ77RTUzutDqFXGF4Hn', 99),
 ('13eRPqTaiaaBaexMDKc6qwVS4pLU5Qmm5E', 100);
 -- Create products data (100)
-insert into products (productNumber, model, brand, price, description, pictureLink) values
+INSERT INTO products (productNumber, model, brand, price, description, pictureLink) values
 ('0780128346', 'Montero Sport', 'Cimetidine Hydrochloride Oral Solution', '431.92', 'Revision of Spacer in R Sacroiliac Jt, Perc Endo Approach', 'http://dummyimage.com/183x212.jpg/cc0000/ffffff'),
 ('7788359858', 'M5', 'Treatment Set TS332486', '395.41', 'Insertion of Spacer into L Metatarsotars Jt, Open Approach', 'http://dummyimage.com/248x116.png/5fa2dd/ffffff'),
 ('5010698005', 'Q', 'Simply Firm Eye - Non-Surgical Face Lift', '367.89', 'Bypass R Axilla Art to Bi Low Leg Art, Open Approach', 'http://dummyimage.com/137x203.jpg/ff4444/ffffff'),
@@ -2408,7 +2408,7 @@ INSERT INTO users_maintain_discussions (user_id, discussion_id) VALUES
 (15, 180),
 (38, 8);
 -- Create users_manage_pages (50)
-insert into users_manage_pages (type, user_id, page_id) values
+INSERT INTO users_manage_pages (type, user_id, page_id) values
 (3, 1, 3),
 (3, 2, 46),
 (3, 3, 47),
@@ -2460,7 +2460,7 @@ insert into users_manage_pages (type, user_id, page_id) values
 (1, 49, 39),
 (2, 50, 42);
 -- Users_possess_types
-insert into users_possess_types (user_id, type_id) values
+INSERT INTO users_possess_types (user_id, type_id) values
 (1, 2),
 (2, 2),
 (3, 1),
