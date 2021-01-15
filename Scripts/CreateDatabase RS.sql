@@ -147,7 +147,7 @@ BEGIN
     (
         id INT NOT NULL IDENTITY(1,1),
         "name" VARCHAR(45) NOT NULL,
-        "description" VARCHAR(128),
+        "description" VARCHAR(255),
         webSite VARCHAR(128),
         email VARCHAR(128),
         phoneNumber VARCHAR(13),
