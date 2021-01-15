@@ -1,6 +1,15 @@
+-- -------------------------- --
+-- Project : Reseau Social    --
+-- Author  : Augsburger Kenan --
+-- Version : 1.0              --
+-- Date    : 15/01/2021       --
+-- -------------------------- --
+
 USE RS;
 
 GO
+
+-- Displays every entries in each table --
 
 -- users
 SELECT * FROM users;

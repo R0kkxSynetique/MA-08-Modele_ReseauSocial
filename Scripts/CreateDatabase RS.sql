@@ -7,6 +7,8 @@
 
 USE master;
 
+-- Creating the database --
+
 IF (EXISTS (SELECT name
 FROM master.dbo.sysdatabases
 WHERE name = 'RS'))
@@ -18,9 +20,9 @@ END
 
 CREATE DATABASE RS;
 
--- TABLES --
-
 GO
+
+-- Creating the tables --
 
 IF (EXISTS (SELECT name
 FROM master.dbo.sysdatabases
@@ -210,12 +212,10 @@ BEGIN
         PRIMARY KEY(id)
     )
 
-    -- CONSTRAINTS --
+    -- Adding foreign key constraints --
     -- TODO:Check on update/delete actions
     -- ! USED NO ACTION TO AVOID MULTIPLE CASCADING PATHS ERROR
     -- ! FIX NEEDED
-
-    -- Foreign keys
 
     ALTER TABLE stories
         ADD user_id INT NOT NULL,
@@ -399,7 +399,7 @@ BEGIN
         ON DELETE CASCADE
         ;
 
-    -- Unique
+    -- Adding unique constraints --
 
     ALTER TABLE comments
         ADD CONSTRAINT uniqueComment UNIQUE (number)
@@ -454,8 +454,9 @@ BEGIN
         CONSTRAINT uniqueAccountName UNIQUE (accountName)
     ;
 
-    -- Checks
+    -- Adding domain(check) constraints --
 
+    -- A post belongs to either a page or an user --
     ALTER TABLE posts
         ADD CONSTRAINT CHK_OneOfEither CHECK (user_id IS NULL OR page_id IS NULL)
     ;

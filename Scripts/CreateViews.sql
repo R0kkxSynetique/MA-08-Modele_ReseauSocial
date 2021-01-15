@@ -1,6 +1,15 @@
+-- -------------------------- --
+-- Project : Reseau Social    --
+-- Author  : Augsburger Kenan --
+-- Version : 1.0              --
+-- Date    : 15/01/2021       --
+-- -------------------------- --
+
 USE RS;
 
 GO
+
+-- Dropping view if it exists --
 
 IF (EXISTS (SELECT name
 FROM sys.views
@@ -10,6 +19,8 @@ BEGIN
 END
 
 GO
+
+-- Creating view containing the amount of entries per table --
 
 CREATE VIEW registry AS SELECT * FROM (SELECT COUNT(*) AS "comments" FROM comments) as comments,
     (SELECT COUNT(*) AS "discussions" FROM discussions) as discussions,
@@ -37,6 +48,8 @@ CREATE VIEW registry AS SELECT * FROM (SELECT COUNT(*) AS "comments" FROM commen
 ;
 
 GO
+
+-- Display view --
 
 SELECT *
 FROM registry;
