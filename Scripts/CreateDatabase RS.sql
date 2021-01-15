@@ -2,7 +2,7 @@
 -- Project : Reseau Social    --
 -- Author  : Augsburger Kenan --
 -- Version : 1.0              --
--- Date    : 08/01/2021       --
+-- Date    : 15/01/2021       --
 -- -------------------------- --
 
 USE master;
@@ -213,9 +213,6 @@ BEGIN
     )
 
     -- Adding foreign key constraints --
-    -- TODO:Check on update/delete actions
-    -- ! USED NO ACTION TO AVOID MULTIPLE CASCADING PATHS ERROR
-    -- ! FIX NEEDED
 
     ALTER TABLE stories
         ADD user_id INT NOT NULL,
@@ -227,8 +224,8 @@ BEGIN
     ALTER TABLE messages
         ADD user_id INT NOT NULL,
         FOREIGN KEY(user_id) REFERENCES users(id)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE,
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
         discussion_id INT NOT NULL,
         FOREIGN KEY(discussion_id) REFERENCES discussions(id)
         ON UPDATE CASCADE
@@ -249,12 +246,12 @@ BEGIN
     ALTER TABLE orders
         ADD user_id INT NOT NULL,
         FOREIGN KEY(user_id) REFERENCES users(id)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE,
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
         state_id INT NOT NULL,
         FOREIGN KEY(state_id) REFERENCES states(id)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
         ;
 
     ALTER TABLE stores
@@ -267,12 +264,12 @@ BEGIN
     ALTER TABLE users_follow_stores
         ADD user_id INT NOT NULL,
         FOREIGN KEY(user_id) REFERENCES users(id)
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION,
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
         store_id INT NOT NULL,
         FOREIGN KEY(store_id) REFERENCES stores(id)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
         ;
 
     ALTER TABLE stores_possess_products
@@ -289,8 +286,8 @@ BEGIN
     ALTER TABLE orders_contain_products
         ADD product_id INT NOT NULL,
         FOREIGN KEY(product_id) REFERENCES products(id)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE,
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
         order_id INT NOT NULL,
         FOREIGN KEY(order_id) REFERENCES orders(id)
         ON UPDATE CASCADE
@@ -300,12 +297,12 @@ BEGIN
     ALTER TABLE users_follow_users
         ADD user_id0 INT NOT NULL,
         FOREIGN KEY(user_id0) REFERENCES users(id)
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION,
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
         user_id1 INT NOT NULL,
         FOREIGN KEY(user_id1) REFERENCES users(id)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
         ;
 
     ALTER TABLE "sessions"
@@ -325,12 +322,12 @@ BEGIN
     ALTER TABLE users_follow_pages
         ADD user_id INT NOT NULL,
         FOREIGN KEY(user_id) REFERENCES users(id)
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION,
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
         page_id INT NOT NULL,
         FOREIGN KEY(page_id) REFERENCES pages(id)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
         ;
 
     ALTER TABLE users_manage_pages
@@ -351,19 +348,19 @@ BEGIN
         ON DELETE CASCADE,
         type_id INT NOT NULL,
         FOREIGN KEY(type_id) REFERENCES types(id)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
         ;
 
     ALTER TABLE posts
         ADD user_id INT,
         FOREIGN KEY(user_id) REFERENCES users(id)
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION,
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
         page_id INT,
         FOREIGN KEY(page_id) REFERENCES pages(id)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
         ;
 
     ALTER TABLE users_like_posts
@@ -384,8 +381,8 @@ BEGIN
         ON DELETE CASCADE,
         type_id INT NOT NULL,
         FOREIGN KEY(type_id) REFERENCES types(id)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
         ;
 
     ALTER TABLE comments
