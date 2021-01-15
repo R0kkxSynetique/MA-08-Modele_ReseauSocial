@@ -4,6 +4,11 @@
 -- Version : 1.0              --
 -- Date    : 08/01/2021       --
 -- -------------------------- --
+IF (EXISTS (SELECT name
+FROM master.dbo.sysdatabases
+WHERE name = 'RS'))
+BEGIN
+    USE RS;
 -- Create users data (100)
 INSERT INTO users (number, accountName, username, email, phoneNumber, birthDate) VALUES
 ('9627543780', 'sruane2t', 'gmurford2t', 'dbilsborrow2t@prnewswire.com', '7952971085', '1931-04-30'),
@@ -2404,3 +2409,4 @@ INSERT INTO users_maintain_discussions (user_id, discussion_id) VALUES
 (38, 8);
 -- 2358
 -- Create users_manage_pages
+END
