@@ -233,7 +233,7 @@ BEGIN
 				('13Z9oZe7KqZnSTMrfXuYvZSVdLupP6daUr', 97), ('1FvVADCjf3pAi5cEHGatFmreJFx2McgjtG', 98),
 				('1Dt9T5fwFGHPtxLcQ77RTUzutDqFXGF4Hn', 99), ('13eRPqTaiaaBaexMDKc6qwVS4pLU5Qmm5E', 100);
 			-- Create products data (100)
-			insert into products (productNumber, model, brand, price, description, pictureLink) values
+			INSERT INTO products (productNumber, model, brand, price, description, pictureLink) VALUES
 				('0780128346', 'Montero Sport', 'Cimetidine Hydrochloride Oral Solution', '431.92', 'Revision of Spacer in R Sacroiliac Jt, Perc Endo Approach', 'http://dummyimage.com/183x212.jpg/cc0000/ffffff'),
 				('7788359858', 'M5', 'Treatment Set TS332486', '395.41', 'Insertion of Spacer into L Metatarsotars Jt, Open Approach', 'http://dummyimage.com/248x116.png/5fa2dd/ffffff'),
 				('5010698005', 'Q', 'Simply Firm Eye - Non-Surgical Face Lift', '367.89', 'Bypass R Axilla Art to Bi Low Leg Art, Open Approach', 'http://dummyimage.com/137x203.jpg/ff4444/ffffff'),
@@ -938,7 +938,7 @@ BEGIN
 			(34, 102),(73, 171),(93, 135),(98, 46),(95, 162),(57, 143),(11, 78),(76, 144),
 			(34, 173),(60, 197),(83, 57),(78, 131),(58, 51),(49, 176),(15, 180),(38, 8);
 			-- Create users_manage_pages (50)
-			insert into users_manage_pages (type, user_id, page_id) values
+			INSERT INTO users_manage_pages (type, user_id, page_id) VALUES
 			(3, 1, 3),(3, 2, 46),(3, 3, 47),(2, 4, 43),(2, 5, 12),(3, 6, 23),(1, 7, 47),(2, 8, 24),
 			(2, 9, 16),(2, 10, 50),(1, 11, 27),(3, 12, 23),(1, 13, 34),(2, 14, 45),(3, 15, 29),(3, 16, 25),
 			(3, 17, 8),(3, 18, 49),(2, 19, 41),(3, 20, 36),(1, 21, 15),(2, 22, 1),(2, 23, 13),(3, 24, 40),
@@ -947,7 +947,7 @@ BEGIN
 			(2, 41, 15),(2, 42, 8),(1, 43, 1),(1, 44, 47),(2, 45, 46),(1, 46, 50),(1, 47, 10),(2, 48, 31),
 			(1, 49, 39),(2, 50, 42);
 			-- Users_possess_types
-			insert into users_possess_types (user_id, type_id) values
+			INSERT INTO users_possess_types (user_id, type_id) VALUES
 			(1, 2),(2, 2),(3, 1),(4, 1),(5, 1),(6, 3),(7, 3),(8, 3),
 			(9, 1),(10, 1),(11, 1),(12, 2),(13, 2),(14, 3),(15, 3),(16, 1),
 			(17, 3),(18, 2),(19, 1),(20, 3),(21, 2),(22, 2),(23, 2),(24, 2),
