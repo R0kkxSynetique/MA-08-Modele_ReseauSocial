@@ -29,6 +29,7 @@ Les objectifs du projet sont:
 - [Github](https://github.com/)
 - [Microsoft SQL server](https://www.microsoft.com/en-us/sql-server)
 - [dataedo](https://dataedo.com/)
+- [Mockaroo](https://www.mockaroo.com/)
 
 ## Descriptif du projet
 
@@ -53,14 +54,14 @@ Les objectifs du projet sont:
 ## Livrables
 
 - Rendu
-  - "CDC ReseauSocial.pdf"
-  - "MCD ReseauSocial.pdf"
-  - "MLD ReseauSocial.pdf"
-  - "CreateDatabase ReseauSocial.sql"
-  - "FillDatabase ReseauSocial.sql"
-  - "CreateViews ReseauSocial.sql"
-  - "SelectDatabase ReseauSocial.sql"
-  - "Documentation ReseauSocial.pdf"
+  - "CDC RS.pdf"
+  - "MCD RS.pdf"
+  - "MLD RS.pdf"
+  - "CreateDatabase RS.sql"
+  - "FillDatabase RS.sql"
+  - "CreateViews RS.sql"
+  - "SelectDatabase RS.sql"
+  - "Documentation RS.pdf"
 
 ## Délais
 
